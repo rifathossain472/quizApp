@@ -12,6 +12,8 @@ constraintlayout = "2.2.0"
 lifecycle_version = "2.8.7"
 fragment_version = "1.8.5"
 
+hilt_version = "2.48"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -25,7 +27,14 @@ lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmode
 lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle_version" }
 fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment_version" }
 
+dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt_version" }
+dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt_version" }
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt_version" }
+
 
