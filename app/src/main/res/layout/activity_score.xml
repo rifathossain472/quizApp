@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScoreActivity"
+    android:background="#009688">
+
+    <ImageView
+        android:id="@+id/trophyIv"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/trophy"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/grettingsTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/trophyIv"
+        android:text="Congratulation !!"
+        android:textSize="32dp"
+        android:textColor="#000000"
+        android:fontFamily="@font/anton"/>
+
+    <TextView
+        android:id="@+id/scoreTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/grettingsTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Your Score is: 10"
+        android:textSize="32dp"
+        android:textColor="#FFEB3B"
+        android:fontFamily="@font/aladin"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/rightAnswerTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/acme"
+        android:text="Right Answer: 2"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scoreTv" />
+
+    <TextView
+        android:id="@+id/wrongAnswerTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/acme"
+        android:text="Wrong Answer: 2"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rightAnswerTv"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCheckWrongAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wrongAnswerTv"
+        android:layout_marginTop="48dp"
+        android:text="@string/check_wrong_answer"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:background="@drawable/nextquestionbackground"
+        android:textColor="@color/white"
+        />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

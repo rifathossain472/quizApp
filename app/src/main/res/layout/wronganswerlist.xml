@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="12dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#96E963"
+        android:elevation="12dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp">
+
+
+            <TextView
+                android:id="@+id/questionNumberTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aclonica"
+                android:text="Question Number- 1"
+                android:textAlignment="center"
+                android:textColor="#037871"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/questionNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/anton"
+                android:text="What is the sum of 1+1 in binary?"
+                android:textAlignment="center"
+                android:textColor="#03A9F4"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/questionNumberTv" />
+
+
+
+                <TextView
+                    android:id="@+id/optionTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Options: "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/questionNameTv"
+                    android:textSize="24dp"
+                    android:textColor="#FF5722"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="12dp"/>
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:id="@+id/option1Tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Sum = 2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/optionTv"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp"/>
+
+            <TextView
+                android:id="@+id/option2Tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Sum = 0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option1Tv"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp"/>
+            <TextView
+                android:id="@+id/option3Tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Sum = 1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option2Tv"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp"/>
+
+            <TextView
+                android:id="@+id/option4Tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. None of above"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option3Tv"
+                android:textSize="20sp"
+                android:textColor="#000000"
+                android:layout_marginStart="12dp"/>
+
+            <TextView
+                android:id="@+id/correctAnswerTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correct Answer: 2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/option4Tv"
+                android:textSize="24dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="10dp"
+                android:textColor="#673AB7"
+                android:fontFamily="@font/acme"/>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

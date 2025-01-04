@@ -33,6 +33,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:gravity="center"
+        android:textSize="40dp"
         android:id="@+id/titleTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

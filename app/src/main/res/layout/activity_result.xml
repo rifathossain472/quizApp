@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".QuizActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -99,6 +99,7 @@
     </RadioGroup>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNextQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"

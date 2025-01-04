@@ -1,10 +1,8 @@
 package com.esports.quizapp
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.esports.quizapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.startBtn.setOnClickListener {
+            val playIntent = Intent(this@MainActivity, QuizActivity::class.java)
+            startActivity(playIntent)
+        }
+
 
     }
 }
