@@ -1,9 +1,11 @@
-package com.esports.quizapp
+package com.esports.quizapp.Quiz
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.esports.quizapp.Data.LocalDataSource
 import com.esports.quizapp.databinding.ActivityWrongAnswerBinding
+import com.esports.quizapp.recyleView.Adapter
 
 class WrongAnswerActivity : AppCompatActivity() {
 

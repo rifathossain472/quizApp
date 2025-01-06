@@ -1,20 +1,21 @@
-package com.esports.quizapp
+package com.esports.quizapp.ViewModel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.esports.quizapp.Data.Quiz
 
 class PlayViewModel : ViewModel() {
     private var score: Int = 0
     private var currentIndex = 0
     private var wrongAnswer = 0
-    private val quizList = LocalDataSource.questions
+    //private val quizList = LocalDataSource.questions
     private var wrongAnswerList = mutableListOf<Int>()
 
-    fun getCurrentQuestion(): Quiz {
+    fun getCurrentQuestion(quizList: MutableList<Quiz>): Quiz {
         return quizList[currentIndex]
     }
 
-    fun getNextQuestion(): Quiz? {
+    fun getNextQuestion(quizList: MutableList<Quiz>): Quiz? {
         currentIndex++
         return if (currentIndex < quizList.size) {
             quizList[currentIndex]
@@ -23,7 +24,7 @@ class PlayViewModel : ViewModel() {
         }
     }
 
-    fun checkAnswer(selectAnswer: Int) {
+    fun checkAnswer(selectAnswer: Int, quizList: MutableList<Quiz>) {
         val currentQuiz = quizList[currentIndex]
         if (selectAnswer == currentQuiz.correctAnswer) {
             score++
@@ -42,13 +43,11 @@ class PlayViewModel : ViewModel() {
         return wrongAnswer
     }
 
-    fun getRightAnswer(): Int{
+    fun getRightAnswer(quizList: MutableList<Quiz>): Int{
         return (quizList.size - wrongAnswer)
     }
 
     fun getWrongAnswerList(): MutableList<Int> {
         return wrongAnswerList
     }
-
-
 }

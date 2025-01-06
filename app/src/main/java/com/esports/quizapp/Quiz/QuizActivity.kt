@@ -1,4 +1,4 @@
-package com.esports.quizapp
+package com.esports.quizapp.Quiz
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.esports.quizapp.databinding.ActivityResultBinding
 import androidx.activity.viewModels
+import com.esports.quizapp.Data.LocalDataSource
+import com.esports.quizapp.Data.LocalDataSource.questionsMathematics
+import com.esports.quizapp.Data.Quiz
+import com.esports.quizapp.ViewModel.PlayViewModel
 
 
 class QuizActivity : AppCompatActivity() {
@@ -14,10 +18,51 @@ class QuizActivity : AppCompatActivity() {
     private val viewModel: PlayViewModel by viewModels()
 
     private lateinit var binding: ActivityResultBinding
+
+    private lateinit var subjectName: String
+    private lateinit var quizList: MutableList<Quiz>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        subjectName = intent.getStringExtra("name").toString()
+
+        Log.d("TAG", "onCreate: success $subjectName")
+
+        quizList = when (subjectName) {
+            "math" -> questionsMathematics
+            "physics" -> {
+                LocalDataSource.questionsPhysics
+            }
+            "chemistry" -> {
+                LocalDataSource.questionsChemistry
+            }
+            "economics" -> {
+                LocalDataSource.questionsEconomics
+            }
+            "computerScience" -> {
+                LocalDataSource.questionsComputerScience
+            }
+            "cricket" -> {
+                LocalDataSource.questionsCricket
+            }
+            "football" -> {
+                LocalDataSource.questionsFootball
+            }
+            "movies" -> {
+                LocalDataSource.questionsMovies
+            }
+            "programming" -> {
+                LocalDataSource.questionsProgramming
+            }
+
+            else -> {
+                LocalDataSource.questions
+            }
+        }
+
 
         showCurrentQuestion()
 
@@ -26,20 +71,19 @@ class QuizActivity : AppCompatActivity() {
                 findViewById(binding.radioGroup.checkedRadioButtonId)
             )
             if (selectIndex != -1) {
-                viewModel.checkAnswer(selectIndex)
+                viewModel.checkAnswer(selectIndex, quizList)
+                Log.d("TAG", "onCreate: $quizList")
                 setNextQuestion()
             } else {
                 Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show()
             }
         }
-        /*val aa = viewModel.getWrongAnswerList()
-        Log.d("wrong", "wrong answer = $aa")*/
-
 
     }
 
+
     private fun setNextQuestion() {
-        val nextQuestion = viewModel.getNextQuestion()
+        val nextQuestion = viewModel.getNextQuestion(quizList)
         if (nextQuestion != null) {
             showCurrentQuestion()
         } else {
@@ -47,7 +91,7 @@ class QuizActivity : AppCompatActivity() {
             Log.d("wrong", "Final wrong answer list: $wrongAnswerList")
             val scoreIntent = Intent(this@QuizActivity, ScoreActivity::class.java)
             scoreIntent.putExtra("score", viewModel.retrieveScore())
-            scoreIntent.putExtra("right", viewModel.getRightAnswer())
+            scoreIntent.putExtra("right", viewModel.getRightAnswer(quizList))
             scoreIntent.putExtra("wrong", viewModel.getWrongAnswer())
             scoreIntent.putIntegerArrayListExtra("wrongAnswerList", wrongAnswerList)
             startActivity(scoreIntent)
@@ -55,7 +99,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun showCurrentQuestion() {
-        val currentQuiz = viewModel.getCurrentQuestion()
+        val currentQuiz = viewModel.getCurrentQuestion(quizList)
 
         binding.apply {
             questionNumberTv.text = currentQuiz.questionNumber

@@ -1,8 +1,9 @@
-package com.esports.quizapp
+package com.esports.quizapp.starter
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.esports.quizapp.Quiz.QuizActivity
 import com.esports.quizapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.startBtn.setOnClickListener {
-            val playIntent = Intent(this@MainActivity, QuizActivity::class.java)
+            val playIntent = Intent(this@MainActivity, CategoryActivity::class.java)
             startActivity(playIntent)
         }
 

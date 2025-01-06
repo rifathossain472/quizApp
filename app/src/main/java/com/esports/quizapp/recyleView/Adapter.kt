@@ -1,9 +1,10 @@
-package com.esports.quizapp
+package com.esports.quizapp.recyleView
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.esports.quizapp.Data.Quiz
 import com.esports.quizapp.databinding.WronganswerlistBinding
 
 class Adapter(private val quizList: List<Quiz>) : RecyclerView.Adapter<Adapter.ViewHolder>() {

@@ -1,4 +1,4 @@
-package com.esports.quizapp
+package com.esports.quizapp.Quiz
 
 import android.annotation.SuppressLint
 import android.content.Intent

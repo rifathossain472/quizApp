@@ -1,4 +1,4 @@
-package com.esports.quizapp
+package com.esports.quizapp.Data
 
 import java.io.Serializable
 
