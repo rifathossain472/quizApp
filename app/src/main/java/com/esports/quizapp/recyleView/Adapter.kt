@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.esports.quizapp.Data.Quiz
-import com.esports.quizapp.databinding.WronganswerlistBinding
+import com.esports.quizapp.databinding.WrongAnswerListBinding
 
 class Adapter(private val quizList: List<Quiz>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-        class ViewHolder(val binding: WronganswerlistBinding) : RecyclerView.ViewHolder(binding.root) {
+        class ViewHolder(val binding: WrongAnswerListBinding) : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bind(quiz: Quiz) {
             binding.apply {
@@ -26,7 +26,7 @@ class Adapter(private val quizList: List<Quiz>) : RecyclerView.Adapter<Adapter.V
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = WronganswerlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = WrongAnswerListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

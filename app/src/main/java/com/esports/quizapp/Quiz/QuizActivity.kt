@@ -72,7 +72,7 @@ class QuizActivity : AppCompatActivity() {
             )
             if (selectIndex != -1) {
                 viewModel.checkAnswer(selectIndex, quizList)
-                Log.d("TAG", "onCreate: $quizList")
+                Log.d("TAG", "select: $quizList")
                 setNextQuestion()
             } else {
                 Toast.makeText(this, "Please select an option", Toast.LENGTH_SHORT).show()
@@ -93,7 +93,8 @@ class QuizActivity : AppCompatActivity() {
                 quizList[index]
             } as ArrayList<Quiz>
 
-            Log.d("wrong", "Final wrong answer list: $wrongAnswerList")
+            Log.d("wrongAnswerList", "Final wrong answer list: $wrongAnswerList")
+            Log.d("wrongAnswerListff", "Final wrong answer list: $wrongQuestions")
             val scoreIntent = Intent(this@QuizActivity, ScoreActivity::class.java)
             scoreIntent.putExtra("score", viewModel.retrieveScore())
             scoreIntent.putExtra("right", viewModel.getRightAnswer(quizList))

@@ -18,20 +18,9 @@ class WrongAnswerActivity : AppCompatActivity() {
         binding = ActivityWrongAnswerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        wrongQuestions = intent.getSerializableExtra("wrongQuestions") as MutableList<Quiz>
-
+        wrongQuestions = intent.getSerializableExtra("wrongAnswerList") as MutableList<Quiz>
 
         Log.d("WrongAnswerActivity", "Wrong Answer List: $wrongQuestions")
-
-       // val wrong = LocalDataSource.questions
-
-        /*val wrongQuestions = wrongAnswerList.map { index ->
-            LocalDataSource.questions[index]
-        }*/
-
-        Log.d("TAG", "Wrong = $wrongQuestions ")
-
 
         adapter = Adapter(wrongQuestions)
         binding.rvLayout.adapter = adapter
