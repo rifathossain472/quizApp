@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.esports.quizapp.Data.Quiz
 import com.esports.quizapp.databinding.ActivityScoreBinding
 
 @Suppress("DEPRECATION")
@@ -19,9 +20,10 @@ class ScoreActivity : AppCompatActivity() {
         val score = intent.getIntExtra("score", 0)
         val rightAnswer = intent.getIntExtra("right", 0)
         val wrongAnswer = intent.getIntExtra("wrong", 0)
-        val wrongAnswerList = intent.getIntegerArrayListExtra("wrongAnswerList")
+        val wrongQuestions = intent.getSerializableExtra("wrongAnswerList") as? ArrayList<Quiz>
 
-        Log.d("ScoreActivity", "Wrong Answer List: $wrongAnswerList")
+
+        Log.d("ScoreActivity", "Wrong Answer List: $wrongQuestions")
 
         binding.apply {
             scoreTv.text = "Your Score is: $score"
@@ -31,7 +33,7 @@ class ScoreActivity : AppCompatActivity() {
 
         binding.btnCheckWrongAnswer.setOnClickListener {
             val intent = Intent(this@ScoreActivity, WrongAnswerActivity::class.java)
-            intent.putIntegerArrayListExtra("wrongAnswerList", wrongAnswerList)
+            intent.putExtra("wrongAnswerList", wrongQuestions)
             startActivity(intent)
         }
 

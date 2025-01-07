@@ -88,12 +88,17 @@ class QuizActivity : AppCompatActivity() {
             showCurrentQuestion()
         } else {
             val wrongAnswerList = ArrayList(viewModel.getWrongAnswerList())
+
+            val wrongQuestions = wrongAnswerList.map { index ->
+                quizList[index]
+            } as ArrayList<Quiz>
+
             Log.d("wrong", "Final wrong answer list: $wrongAnswerList")
             val scoreIntent = Intent(this@QuizActivity, ScoreActivity::class.java)
             scoreIntent.putExtra("score", viewModel.retrieveScore())
             scoreIntent.putExtra("right", viewModel.getRightAnswer(quizList))
             scoreIntent.putExtra("wrong", viewModel.getWrongAnswer())
-            scoreIntent.putIntegerArrayListExtra("wrongAnswerList", wrongAnswerList)
+            scoreIntent.putExtra("wrongAnswerList", wrongQuestions)
             startActivity(scoreIntent)
         }
     }
